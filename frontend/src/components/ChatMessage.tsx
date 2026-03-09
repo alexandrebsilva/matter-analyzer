@@ -6,13 +6,13 @@ function SummaryCard({ summary }: { summary: MatterSummary }) {
       <h3 className="summary-title">{summary.title}</h3>
 
       <section className="summary-section">
-        <h4>Executive Summary</h4>
+        <h4>Resumo Executivo</h4>
         <p>{summary.executiveSummary}</p>
       </section>
 
       {summary.partiesInvolved.length > 0 && (
         <section className="summary-section">
-          <h4>Parties Involved</h4>
+          <h4>Partes Envolvidas</h4>
           <ul>
             {summary.partiesInvolved.map((party, i) => (
               <li key={i}>{party}</li>
@@ -23,7 +23,7 @@ function SummaryCard({ summary }: { summary: MatterSummary }) {
 
       {summary.importantDates.length > 0 && (
         <section className="summary-section">
-          <h4>Important Dates</h4>
+          <h4>Datas Importantes</h4>
           <ul>
             {summary.importantDates.map((d, i) => (
               <li key={i}>
@@ -36,7 +36,7 @@ function SummaryCard({ summary }: { summary: MatterSummary }) {
 
       {summary.keyFacts.length > 0 && (
         <section className="summary-section">
-          <h4>Key Facts</h4>
+          <h4>Fatos Principais</h4>
           <ul>
             {summary.keyFacts.map((fact, i) => (
               <li key={i}>{fact}</li>
@@ -47,7 +47,7 @@ function SummaryCard({ summary }: { summary: MatterSummary }) {
 
       {summary.issuesOrClaims.length > 0 && (
         <section className="summary-section">
-          <h4>Issues / Claims</h4>
+          <h4>Questões / Reivindicações</h4>
           <ul>
             {summary.issuesOrClaims.map((issue, i) => (
               <li key={i}>{issue}</li>
@@ -58,7 +58,7 @@ function SummaryCard({ summary }: { summary: MatterSummary }) {
 
       {summary.requestedActions.length > 0 && (
         <section className="summary-section">
-          <h4>Requested Actions / Next Steps</h4>
+          <h4>Ações Solicitadas / Próximos Passos</h4>
           <ul>
             {summary.requestedActions.map((action, i) => (
               <li key={i}>{action}</li>
@@ -69,7 +69,7 @@ function SummaryCard({ summary }: { summary: MatterSummary }) {
 
       {summary.risksAndMissingInfo.length > 0 && (
         <section className="summary-section">
-          <h4>Risks / Missing Information</h4>
+          <h4>Riscos / Informações Ausentes</h4>
           <ul>
             {summary.risksAndMissingInfo.map((risk, i) => (
               <li key={i}>{risk}</li>
@@ -79,7 +79,7 @@ function SummaryCard({ summary }: { summary: MatterSummary }) {
       )}
 
       <section className="summary-section">
-        <h4>Final Summary</h4>
+        <h4>Resumo Final</h4>
         <p>{summary.finalSummary}</p>
       </section>
     </div>

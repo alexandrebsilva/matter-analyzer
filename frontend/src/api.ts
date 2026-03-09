@@ -22,14 +22,14 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
   if (response.status === 401) {
     localStorage.removeItem('token');
     window.location.href = '/login';
-    throw new Error('Session expired');
+    throw new Error('Sessão expirada');
   }
 
   if (!response.ok) {
     const error = await response.json().catch(() => ({
       message: response.statusText,
     }));
-    throw new Error(error.message || 'Request failed');
+    throw new Error(error.message || 'Falha na requisição');
   }
 
   return response.json() as Promise<T>;

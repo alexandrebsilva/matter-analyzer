@@ -37,7 +37,7 @@ export default function ChatPage() {
 
   async function handleFileUpload(file: File) {
     setUploading(true);
-    addMessage('user', `📄 Uploaded: ${file.name}`);
+    addMessage('user', `📄 Enviado: ${file.name}`);
 
     try {
       const result = await uploadAndSummarize(file);
@@ -45,13 +45,13 @@ export default function ChatPage() {
       setCurrentFileName(result.fileName);
       addMessage(
         'assistant',
-        `Analysis complete for "${result.fileName}"`,
+        `Análise concluída para "${result.fileName}"`,
         result.summary,
       );
     } catch (err) {
       addMessage(
         'assistant',
-        `Failed to analyze file: ${err instanceof Error ? err.message : 'Unknown error'}`,
+        `Falha ao analisar arquivo: ${err instanceof Error ? err.message : 'Erro desconhecido'}`,
       );
     } finally {
       setUploading(false);
@@ -76,7 +76,7 @@ export default function ChatPage() {
     } catch (err) {
       addMessage(
         'assistant',
-        `Error: ${err instanceof Error ? err.message : 'Failed to get response'}`,
+        `Erro: ${err instanceof Error ? err.message : 'Falha ao obter resposta'}`,
       );
     } finally {
       setSending(false);
@@ -87,7 +87,8 @@ export default function ChatPage() {
     <div className="chat-container">
       <header className="chat-header">
         <div className="chat-header-left">
-          <h1>Matter Analyzer</h1>
+          <img src="/icon-48.png" alt="JustiFlow" className="chat-header-icon" />
+          <h1>JustiFlow</h1>
           {currentFileName && (
             <span className="active-file">📄 {currentFileName}</span>
           )}
@@ -95,7 +96,7 @@ export default function ChatPage() {
         <div className="chat-header-right">
           <span className="username">{username}</span>
           <button onClick={logout} className="btn-logout">
-            Sign Out
+            Sair
           </button>
         </div>
       </header>
@@ -103,10 +104,11 @@ export default function ChatPage() {
       <div className="chat-messages">
         {messages.length === 0 && (
           <div className="empty-state">
-            <h2>Welcome to Matter Analyzer</h2>
-            <p>Upload a legal document to get started, or type a message below.</p>
+            <img src="/logo.png" alt="JustiFlow" className="welcome-logo" />
+            <h2>Bem-vindo ao JustiFlow</h2>
+            <p>Envie um documento jurídico para começar, ou digite uma mensagem abaixo.</p>
             <p className="supported-formats">
-              Supported formats: .txt, .md, .pdf
+              Formatos aceitos: .txt, .md, .pdf
             </p>
           </div>
         )}
@@ -139,8 +141,8 @@ export default function ChatPage() {
             onChange={(e) => setInput(e.target.value)}
             placeholder={
               currentFileId
-                ? 'Ask a follow-up question about the document...'
-                : 'Type a message...'
+                ? 'Faça uma pergunta sobre o documento...'
+                : 'Digite uma mensagem...'
             }
             disabled={sending || uploading}
           />
@@ -149,7 +151,7 @@ export default function ChatPage() {
             className="btn-send"
             disabled={!input.trim() || sending || uploading}
           >
-            Send
+            Enviar
           </button>
         </form>
       </div>

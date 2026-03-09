@@ -48,11 +48,11 @@ export default function FileUpload({
       />
       {uploading ? (
         <span className="upload-status">
-          <span className="spinner" /> Analyzing document...
+          <span className="spinner" /> Analisando documento...
         </span>
       ) : (
         <span className="upload-label">
-          📎 Drop a file here or click to upload (.txt, .md, .pdf)
+          📎 Arraste um arquivo aqui ou clique para enviar (.txt, .md, .pdf)
         </span>
       )}
     </div>

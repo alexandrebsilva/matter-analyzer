@@ -19,7 +19,7 @@ export default function LoginPage() {
       await login(username, password);
       navigate('/chat', { replace: true });
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Login failed');
+      setError(err instanceof Error ? err.message : 'Falha ao entrar');
     } finally {
       setLoading(false);
     }
@@ -29,39 +29,39 @@ export default function LoginPage() {
     <div className="login-container">
       <form className="login-card" onSubmit={handleSubmit}>
         <div className="login-header">
-          <h1>Matter Analyzer</h1>
-          <p>Sign in to analyze your legal documents</p>
+          <img src="/logo.png" alt="JustiFlow" className="login-logo" />
+          {/* <p>Entre para analisar seus documentos jurídicos</p> */}
         </div>
 
         {error && <div className="error-message">{error}</div>}
 
         <div className="form-group">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">Usuário</label>
           <input
             id="username"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            placeholder="Enter username"
+            placeholder="Digite seu usuário"
             required
             autoFocus
           />
         </div>
 
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Senha</label>
           <input
             id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter password"
+            placeholder="Digite sua senha"
             required
           />
         </div>
 
         <button type="submit" className="btn-primary" disabled={loading}>
-          {loading ? 'Signing in...' : 'Sign In'}
+          {loading ? 'Entrando...' : 'Entrar'}
         </button>
       </form>
     </div>
